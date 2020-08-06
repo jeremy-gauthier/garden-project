@@ -1,4 +1,4 @@
-# website
+# Front of my application in VueJS
 
 ## Project setup
 ```
