@@ -10,10 +10,12 @@
             class="mb-2"
   >
         <b-card-text>
-        {{ content }}
+            {{ content }}
         </b-card-text>
-
-    <b-button :href="href" variant="primary">Voir</b-button>
+        <div class="text-center">
+            <b-button class="buttons" :href="href" variant="primary">Voir</b-button>
+            <b-button class="buttons"  variant="success">Planter</b-button>
+        </div>
         </b-card>
     </div>
 </template>
@@ -42,5 +44,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+.buttons{
+    margin:2px;
+}
 </style>

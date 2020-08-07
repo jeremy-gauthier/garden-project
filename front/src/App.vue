@@ -4,6 +4,7 @@
       <b-navbar-brand href="#">Mon potager</b-navbar-brand>
     <b-navbar-nav>
         <b-nav-item href="/">Accueil</b-nav-item>
+        <b-nav-item href="garden">Mon Potager</b-nav-item>
         <b-nav-item href="fruits">Fruits</b-nav-item>
         <b-nav-item href="légumes">Légumes</b-nav-item>
         <b-nav-item href="aromates">Aromates</b-nav-item>

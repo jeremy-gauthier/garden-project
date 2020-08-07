@@ -25,6 +25,15 @@
             href="/posts/pomme"/>
         </div>  
       </div>
+      <br>
+      <div class="text-center">
+        <p>
+        <router-link to="/">
+            Retour à l'accueil
+        </router-link>
+      </p>
+      </div>
+      
     </div>
    
 </template>

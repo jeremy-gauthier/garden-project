@@ -1,15 +1,27 @@
 <template>
-    <div>
-        <h1>La menthe</h1>
-        <p>La menthe peut etre planté chaque mois de l'année</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam quaerat debitis, sit ratione corrupti libero reprehenderit laudantium labore, illo dolorem, odit suscipit. Obcaecati nam laboriosam tempora praesentium excepturi eum porro! Nulla qui beatae, necessitatibus accusantium debitis quam. Rem, aliquid quasi nam nihil eaque doloribus dolorem corporis quaerat, at aspernatur sequi!</p>
-    </div>
+        <div>
+            <Descript 
+            name="Menthe" 
+            picture="" 
+            semi="N'importe quand"
+            recolt="2 mois plus tard"
+            exposition="surtout l'été"
+            sol="aride"
+            watering="2 fois par semaine"
+            advice="prenez en soin, vraiment"
+            quantity_plant= "2"/>
+        </div>
+    
+
 </template>
 
 <script>
+import Descript from "@/components/Descript";
     export default {
-        
-    }
+        components: {
+        Descript
+    }   
+    };
 </script>
 
 <style lang="scss" scoped>

@@ -9,6 +9,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './custom.scss';
 
 import Home from "@/components/pages/Home";
+import Garden from "@/components/pages/Garden";
 import Legumes from "@/components/pages/Legumes";
 import Fruits from "@/components/pages/Fruits";
 import Aromates from "@/components/pages/Aromates";
@@ -29,6 +30,7 @@ Vue.use(IconsPlugin);
 
 const routes=[
   {path:"/", component : Home},
+  {path:"/garden", component : Garden},
   {path:"/légumes", component : Legumes},
   {path:"/fruits", component : Fruits},
   {path:"/aromates", component : Aromates},
