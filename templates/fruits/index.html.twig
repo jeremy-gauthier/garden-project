@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fruits{% endblock %}
+
+{% block body %}
+<br>
+
+<div class="text-center">
+<h5>Liste des fruits</h5>
+</div>
+
+<div>
+{% for fruit in fruits %}
+<div>
+        <p>{{ fruit.name }}</p>
+        <img src="{{ fruit.picture }}" heigth="300" width="100">
+</div>    
+    
+{% endfor %} 
+</div>
+
+{% endblock %}
