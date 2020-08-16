@@ -23,7 +23,7 @@ class VegetablesRepository extends ServiceEntityRepository
         // on construit une requete 
         $builder = $this->createQueryBuilder('vegetables');
         $builder->orderBy('vegetables.name');
-        $builder->setMaxResults(30);
+        $builder->setMaxResults(5);
 
         // on recupère la requete construite
         $query = $builder->getQuery();

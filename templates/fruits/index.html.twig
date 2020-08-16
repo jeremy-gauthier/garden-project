@@ -4,19 +4,23 @@
 
 {% block body %}
 <br>
-
 <div class="text-center">
 <h5>Liste des fruits</h5>
 </div>
-
-<div>
+<br>
+<div class="d-flex p-2 bd-highlight text-center">
+<div class="d-flex-inline flex-row bd-highlight mb-3 text-center">
 {% for fruit in fruits %}
-<div>
-        <p>{{ fruit.name }}</p>
-        <img src="{{ fruit.picture }}" heigth="300" width="100">
-</div>    
-    
-{% endfor %} 
+<div class="card p-2 bd-highlight float-left" style="width:21em; height:30em">
+  <img class="card-img-top " src="{{ fruit.picture }}" alt="Card image cap" style="width:19em; height:15em">
+  <div class="card-body">
+    <h5 class="card-title">{{ fruit.name }}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">En savoir plus</a>
+  </div>
+</div>  
+{% endfor %}
+  
 </div>
 
 {% endblock %}
