@@ -14,11 +14,34 @@ class VegetablesController extends AbstractController
     /**
      * @Route("/vegetables", name="vegetable_list",methods={"GET"})
      */
-    public function index(VegetablesRepository $vegetablesRepository)
+    public function allVegetable()
     {
+        $vegetable = $this->getDoctrine()->getRepository(Vegetables::class)->findBy(
+            [], 
+            ["name" => "ASC"]
+        );
+        
         return $this->render('vegetables/index.html.twig', [
-            'vegetables' => $vegetablesRepository->findAll(),
+            "vegetables" => $vegetable 
         ]);
     }
     
+    /**
+     * @Route("/vegetable/{id}/view", name="vegetable_view", requirements={"id" = "\d+"})
+     */
+    public function viewVegetable($id)
+    {
+        $vegetable = $this->getDoctrine()->getRepository(Vegetables::class)->find($id);
+        
+
+        if(empty($vegetable)) {
+            throw $this->createNotFoundException("Désolé, nous n'avons pas ce légume dans notre base de donnée");
+        }
+       
+
+        return $this->render('vegetables/vegetable_view.html.twig', [
+            "vegetable" => $vegetable
+            
+        ]);
+    }
 }

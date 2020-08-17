@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ vegetable.name }}{% endblock %}
+
+{% block body %}
+
+
+<h1 class="text-center bg-light"> {{ vegetable.name }}</h1>
+<div class="text-center">
+    <img src ="{{ vegetable.picture }}" heigth="700" width="300">
+</div>
+
+<br>
+<h5 class= "text-center">Semi:</h5>
+<p class="mt-1"> {{ vegetable.semi }}</p>
+<br>
+
+{% endblock %}
