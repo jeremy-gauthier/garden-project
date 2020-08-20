@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ fruit.name }}{% endblock %}
+
+{% block body %}
+
+
+<h1 class="text-center bg-light"> {{ fruit.name }}</h1>
+<div class="text-center">
+    <img src ="{{ fruit.picture }}" heigth="700" width="300">
+</div>
+<br>
+<table class="table">
+<tbody>
+    <tr>
+      <th scope="row">Semi:</th>
+      <td>{{ fruit.semi }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Récolte:</th>
+      <td>{{ fruit.recolt }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Exposition:</th>
+      <td>{{ fruit.exposition }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Sol:</th>
+      <td>{{ fruit.sol }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Arrossage:</th>
+      <td>{{ fruit.watering }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Conseils:</th>
+      <td>{{ fruit.advice }}</td>
+    </tr>
+<tbody>
+</table>
+<br>
+   <h1 class="text-center"> Calendrier </h1>
+<br>
+<table class="table table-bordered">
+<tbody>
+    <tr>
+      <td>Janvier</td>
+      <td>Fevrier</td>
+      <td>Mars</td>
+      <td>Avril</td>
+      <td>Mai</td>
+      <td>Juin</td>
+      <td>Juillet</td>
+      <td>Aout</td>
+      <td>Septembre</td>
+      <td>Octobre</td>
+      <td>Novembre</td>
+      <td>Décembre</td>
+    </tr>
+<tbody>
+
+{% endblock %}

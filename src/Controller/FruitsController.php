@@ -20,4 +20,23 @@ class FruitsController extends AbstractController
         ]);
     }
     
+    /**
+     * @Route("/fruit/{id}/view", name="fruit_view", requirements={"id" = "\d+"})
+     */
+    public function viewFruit($id)
+    {
+        $fruit = $this->getDoctrine()->getRepository(Fruits::class)->find($id);
+        
+
+        if(empty($fruit)) {
+            throw $this->createNotFoundException("Désolé, nous n'avons pas ce fruit dans notre base de donnée");
+        }
+       
+
+        return $this->render('fruits/fruit_view.html.twig', [
+            "fruit" => $fruit
+            
+        ]);
+    }
 }
+
