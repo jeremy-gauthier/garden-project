@@ -20,5 +20,23 @@ class AromatesController extends AbstractController
         ]);
     }
     
+    /**
+     * @Route("/aromate/{id}/view", name="aromate_view", requirements={"id" = "\d+"})
+     */
+    public function viewAromate($id)
+    {
+        $aromate = $this->getDoctrine()->getRepository(Aromates::class)->find($id);
+        
+
+        if(empty($aromate)) {
+            throw $this->createNotFoundException("Désolé, nous n'avons pas cet aromate dans notre base de donnée");
+        }
+       
+
+        return $this->render('aromates/aromate_view.html.twig', [
+            "aromate" => $aromate
+            
+        ]);
+    }
 }
 
