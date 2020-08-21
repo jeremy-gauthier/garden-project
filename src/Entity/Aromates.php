@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AromatesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
@@ -72,6 +74,16 @@ class Aromates
      * @Groups({"aromates:list"})
      */
     private $QuantityPlant;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Month::class, mappedBy="Aromates")
+     */
+    private $months;
+
+    public function __construct()
+    {
+        $this->months = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -182,6 +194,34 @@ class Aromates
     public function setQuantityPlant(int $QuantityPlant): self
     {
         $this->QuantityPlant = $QuantityPlant;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Month[]
+     */
+    public function getMonths(): Collection
+    {
+        return $this->months;
+    }
+
+    public function addMonth(Month $month): self
+    {
+        if (!$this->months->contains($month)) {
+            $this->months[] = $month;
+            $month->addAromate($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMonth(Month $month): self
+    {
+        if ($this->months->contains($month)) {
+            $this->months->removeElement($month);
+            $month->removeAromate($this);
+        }
 
         return $this;
     }

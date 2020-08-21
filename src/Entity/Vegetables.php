@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\VegetablesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
@@ -72,6 +74,16 @@ class Vegetables
      * @Groups({"vegetables:list"})
      */
     private $QuantityPlant;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Month::class, mappedBy="vegetable")
+     */
+    private $months;
+
+    public function __construct()
+    {
+        $this->months = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -182,6 +194,34 @@ class Vegetables
     public function setQuantityPlant(int $QuantityPlant): self
     {
         $this->QuantityPlant = $QuantityPlant;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Month[]
+     */
+    public function getMonths(): Collection
+    {
+        return $this->months;
+    }
+
+    public function addMonth(Month $month): self
+    {
+        if (!$this->months->contains($month)) {
+            $this->months[] = $month;
+            $month->addVegetable($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMonth(Month $month): self
+    {
+        if ($this->months->contains($month)) {
+            $this->months->removeElement($month);
+            $month->removeVegetable($this);
+        }
 
         return $this;
     }
