@@ -3,5 +3,15 @@
 {% block title %}Potager{% endblock %}
 {% block body %}
 <h1>Salut, bienvenue dans le potager</h1>
-<p>En construction</p>
+
+<br>
+<div class="d-flex p-2 bd-highlight text-center">
+<div class="d-flex-inline flex-row bd-highlight mb-3 text-center">
+{% for gard in garden %}
+<div class="card p-2 bd-highlight float-left" style="width:21em; height:30em">
+  <div class="card-body">
+    <h5 class="card-title">{{ gard.plant }}</h5>
+  </div>
+</div>  
+{% endfor %}
 {% endblock %}

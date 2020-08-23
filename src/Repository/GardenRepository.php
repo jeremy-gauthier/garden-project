@@ -19,32 +19,17 @@ class GardenRepository extends ServiceEntityRepository
         parent::__construct($registry, Garden::class);
     }
 
-    // /**
-    //  * @return Garden[] Returns an array of Garden objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('g')
-            ->andWhere('g.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('g.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+    public function findOrderByName() {
 
-    /*
-    public function findOneBySomeField($value): ?Garden
-    {
-        return $this->createQueryBuilder('g')
-            ->andWhere('g.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+        // on construit une requete 
+        $builder = $this->createQueryBuilder('garden');
+        $builder->orderBy('garden.name');
+        $builder->setMaxResults(5);
+
+        // on recupère la requete construite
+        $query = $builder->getQuery();
+
+        // je demande a doctrine d'éxecuter le requete et de me renvoyer les resultats
+        return $query->getResult();
+}
 }
