@@ -76,15 +76,11 @@ class Fruits
     private $QuantityPlant;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Month::class, mappedBy="Fruits")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $months;
+    private $MonthPlant;
 
-    public function __construct()
-    {
-        $this->months = new ArrayCollection();
-    }
-
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -198,31 +194,17 @@ class Fruits
         return $this;
     }
 
-    /**
-     * @return Collection|Month[]
-     */
-    public function getMonths(): Collection
+    public function getMonthPlant(): ?string
     {
-        return $this->months;
+        return $this->MonthPlant;
     }
 
-    public function addMonth(Month $month): self
+    public function setMonthPlant(?string $MonthPlant): self
     {
-        if (!$this->months->contains($month)) {
-            $this->months[] = $month;
-            $month->addFruit($this);
-        }
+        $this->MonthPlant = $MonthPlant;
 
         return $this;
     }
 
-    public function removeMonth(Month $month): self
-    {
-        if ($this->months->contains($month)) {
-            $this->months->removeElement($month);
-            $month->removeFruit($this);
-        }
-
-        return $this;
-    }
+    
 }

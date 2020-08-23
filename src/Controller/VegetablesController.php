@@ -22,7 +22,7 @@ class VegetablesController extends AbstractController
         );
         
         return $this->render('vegetables/index.html.twig', [
-            "vegetables" => $vegetable 
+            "vegetables" => $vegetable
         ]);
     }
     

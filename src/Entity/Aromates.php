@@ -76,14 +76,9 @@ class Aromates
     private $QuantityPlant;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Month::class, mappedBy="Aromates")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $months;
-
-    public function __construct()
-    {
-        $this->months = new ArrayCollection();
-    }
+    private $MonthPlant;
 
     public function getId(): ?int
     {
@@ -198,31 +193,16 @@ class Aromates
         return $this;
     }
 
-    /**
-     * @return Collection|Month[]
-     */
-    public function getMonths(): Collection
+    public function getMonthPlant(): ?string
     {
-        return $this->months;
+        return $this->MonthPlant;
     }
 
-    public function addMonth(Month $month): self
+    public function setMonthPlant(?string $MonthPlant): self
     {
-        if (!$this->months->contains($month)) {
-            $this->months[] = $month;
-            $month->addAromate($this);
-        }
+        $this->MonthPlant = $MonthPlant;
 
         return $this;
     }
 
-    public function removeMonth(Month $month): self
-    {
-        if ($this->months->contains($month)) {
-            $this->months->removeElement($month);
-            $month->removeAromate($this);
-        }
-
-        return $this;
-    }
 }
