@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Garden{% endblock %}
+{% block title %}Ajout au potager{% endblock %}
 
 {% block body %}
-    <h1>Create new Garden</h1>
+    <h1>Ajouter au potager</h1>
 
     {{ include('garden/_form.html.twig') }}
 
-    <a href="{{ path('garden_index') }}">back to list</a>
+    <a href="{{ path('garden_index') }}">Retour</a>
 {% endblock %}
