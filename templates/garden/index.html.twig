@@ -10,7 +10,6 @@
             <tr>
                 <th>Plante</th>
                 <th>Jour de plantation</th>
-                <th>Récolte</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,7 +18,6 @@
             <tr>
                 <td>{{ garden.plant }}</td>
                 <td>{{ garden.dayPlant ? garden.dayPlant|date('Y-m-d') : '' }}</td>
-                <td>{{ garden.dayRecolt ? garden.dayRecolt|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('garden_edit', {'id': garden.id}) }}">Modifier</a>
                 </td>

@@ -27,11 +27,6 @@ class Garden
      */
     private $dayPlant;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $dayRecolt;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -61,15 +56,4 @@ class Garden
         return $this;
     }
 
-    public function getDayRecolt(): ?\DateTimeInterface
-    {
-        return $this->dayRecolt;
-    }
-
-    public function setDayRecolt(?\DateTimeInterface $dayRecolt): self
-    {
-        $this->dayRecolt = $dayRecolt;
-
-        return $this;
-    }
 }
