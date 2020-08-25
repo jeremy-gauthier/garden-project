@@ -70,12 +70,6 @@ class Vegetables
     private $advice;
 
     /**
-     * @ORM\Column(type="integer")
-     * @Groups({"vegetables:list"})
-     */
-    private $QuantityPlant;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $MonthPlant;
@@ -178,18 +172,6 @@ class Vegetables
     public function setAdvice(?string $advice): self
     {
         $this->advice = $advice;
-
-        return $this;
-    }
-
-    public function getQuantityPlant(): ?int
-    {
-        return $this->QuantityPlant;
-    }
-
-    public function setQuantityPlant(int $QuantityPlant): self
-    {
-        $this->QuantityPlant = $QuantityPlant;
 
         return $this;
     }

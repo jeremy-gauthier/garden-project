@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon potager{% endblock %}
+
+{% block body %}
+    <h1>Mon Potager</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Plante</th>
+                <th>Jour de plantation</th>
+                <th>Récolte</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for garden in gardens %}
+            <tr>
+                <td>{{ garden.plant }}</td>
+                <td>{{ garden.dayPlant ? garden.dayPlant|date('Y-m-d') : '' }}</td>
+                <td>{{ garden.dayRecolt ? garden.dayRecolt|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('garden_edit', {'id': garden.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Vous n'avez rien planté dans votre potager</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('garden_new') }}">Ajouter une plante</a>
+{% endblock %}
